@@ -30,8 +30,6 @@ function getInformationAboutUser(user) {
     let dataHtml;
     let roles = [];
 
-    console.log('userData', JSON.stringify(user)) // TODO Удалить
-
     for (let role of user.roles) {
         roles.push(" " + role.name.toString()
             .replaceAll("ROLE_", ""))

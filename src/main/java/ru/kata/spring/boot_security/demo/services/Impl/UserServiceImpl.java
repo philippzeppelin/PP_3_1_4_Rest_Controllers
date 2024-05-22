@@ -85,9 +85,4 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 user.getRoles()
         );
     }
-
-    @Transactional
-    public void deleteAllUsers() {
-        userRepository.deleteAll();
-    }
 }

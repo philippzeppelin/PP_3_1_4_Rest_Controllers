@@ -46,23 +46,10 @@ public class DataLoader implements CommandLineRunner {
                 Set.of(userRole)
         );
 
-        User user2 = new User( // TODO Удалить все данные юзера
-                "firstname",
-                "lastname",
-                28,
-                "username",
-                "user",
-                "user@mail.com",
-                Set.of(userRole)
-        );
-
-//        userService.deleteAllUsers();
-
         roleService.saveRole(adminRole);
         roleService.saveRole(userRole);
 
         userService.saveUser(admin);
         userService.saveUser(user);
-        userService.saveUser(user2);
     }
 }

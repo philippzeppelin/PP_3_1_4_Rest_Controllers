@@ -81,7 +81,6 @@ async function getRoles() {
         }
 
         const roles = await response.json();
-
         rolesElement.innerHTML = '';
 
         roles.forEach(role => {

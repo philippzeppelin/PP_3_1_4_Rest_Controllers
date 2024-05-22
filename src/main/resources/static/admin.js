@@ -2,9 +2,6 @@ const adminurl = '/api/admin';
 const currentUser = fetch(adminurl).then(response => response.json())
 
 currentUser.then(user => {
-        console.log(user)
-        console.log(user[3].roles) // TODO Удалить
-
         let roles = ''
 
         user.roles.forEach(role => {

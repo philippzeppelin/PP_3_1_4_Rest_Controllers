@@ -16,7 +16,6 @@ async function loadDataForEditModal(id) {
 
     if (usersPageEd.ok) {
         await usersPageEd.json().then(user => {
-            console.log('userData', JSON.stringify(user))
             id_ed.value = `${user.id}`;
             username_ed.value = `${user.username}`;
             firstname_ed.value = `${user.firstname}`;
@@ -34,7 +33,6 @@ async function loadDataForEditModal(id) {
             }
         })
 
-        console.log("id_ed: " + id_ed.value + " !!")
         bsEditModal.show();
     } else {
         alert(`Error, ${usersPageEd.status}`)
@@ -44,7 +42,6 @@ async function loadDataForEditModal(id) {
 async function editUser() {
     let urlEdit = 'api/admin/user/' + id_ed.value;
     let listOfRole = [];
-    console.dir(form_ed)
 
     for (let i=0; i<form_ed.roles.options.length; i++) {
         if (form_ed.roles.options[i].selected) {
@@ -69,8 +66,6 @@ async function editUser() {
             roles: listOfRole
         })
     }
-
-    console.log(urlEdit,method) // TODO Удалить
 
     await fetch(urlEdit,method).then(() => {
         closeEditButton.click();

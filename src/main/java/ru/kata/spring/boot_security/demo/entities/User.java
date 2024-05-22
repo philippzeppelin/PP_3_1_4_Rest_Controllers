@@ -1,15 +1,12 @@
 package ru.kata.spring.boot_security.demo.entities;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "users")
@@ -115,14 +112,6 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
-//    public String getRolesAsString() { // TODO Удалить
-//        return this.getRoles().stream()
-//                .map(role ->
-//                        role.getName()
-//                                .substring(role.getName().indexOf("_") + 1))
-//                .collect(Collectors.joining(" "));
-//    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -154,10 +143,6 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-//        List<GrantedAuthority> authorities = this.getRoles().stream()
-//                .map(role -> new SimpleGrantedAuthority(role.getName()))
-//                .collect(Collectors.toList());
-//        return authorities;
         return getRoles();
     }
 
